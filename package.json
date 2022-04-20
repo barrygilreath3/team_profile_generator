@@ -1,0 +1,17 @@
+{
+  "name": "10---homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "inquirer": "^8.2.2",
+    "jest": "^27.5.1"
+  }
+}

@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(22, 22, 22)
+}
+
+header {
+    display: flex;
+    height: 120px;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(163, 7, 54);
+}
+
+header h1 {
+    color: white;
+}
+
+#container {
+    margin:80px;
+    display: flex;
+}
+
+.card {
+    background-color:rgb(238, 238, 238);
+    height: 400px;
+    width: 300px;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    border: 1px lightgray solid;
+    box-shadow: 6px 6px 20px 1px rgba(0, 0, 50, 0.2);
+}
+
+.Plate {
+    background-color:rgb(67, 67, 185);
+    width: auto;
+    height: 120px;
+    padding: 0px 0px 0px 15px;
+    vertical-align: center;
+}
+
+.nameTitle {
+    color: white;
+    height:10px;
+}
+
+.roleTitle {
+    color: white;
+    height:10px;
+}
+
+#bottomBox {
+    display: flex;
+    flex-direction: column;
+    margin:40px 0px 0px 0px;
+    align-items: center;
+}
+
+.infoBox {
+    background-color: white;
+    width: 85%;
+    height:70px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    padding: 0px 0px 0px 10px;
+    border: lightgray solid 1px;
+    font-size: smaller;
+}
+
+a {
+    text-decoration:none;
+    color: rgb(67, 67, 185);
+}
