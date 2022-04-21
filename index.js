@@ -1,16 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
-const jest = require('jest');
-const Employee = require('./classes/Employee');
-const manager = require('./classes/Manager');
-const engineer = require('./classes/Engineer');
-const intern = require('./classes/Intern');
+const Manager = require('./classes/Manager');
+const Engineer = require('./classes/Engineer');
+const Intern = require('./classes/Intern');
 
 const generateHtml = require('./utils/generateHtml');
-const Manager = require('./classes/Manager');
+const targetFolder = path.resolve(__dirname, "dist");
 
-// const generateHtml = new generateHtml();
+
+const team = [];
 
 function mainMenu() {
     inquirer.prompt(
@@ -32,7 +31,15 @@ function mainMenu() {
             addIntern();
         }
         else {
-            process.exit();
+            console.log(team);
+            // process.exit();
+
+            if (!fs.existsSync(targetFolder)) {
+                fs.mkdir(targetFolder);
+            }
+        
+            fs.writeFileSync(path.join(targetFolder, 'team.html'), generateHtml(team));
+
         }
     })
 }
@@ -60,36 +67,8 @@ function addManager() {
             name: 'office'        
         }
     ]).then (answers => {
-        console.log(answers);
-        mainMenu();
-    }
-    );
-}
-
-function addEngineer () {
-    inquirer.prompt([
-        {
-            type: 'input',
-            message: 'First Name',
-            name: 'name'
-        },
-        {
-            type: 'input',
-            message: 'Employee ID #:',
-            name: 'id'
-        },
-        {
-            type: 'input',
-            message: 'Email Address:',
-            name: 'email'
-        },
-        {
-            type: 'input',
-            message: 'Office Number?',
-            name: 'office'        
-        }
-    ]).then (answers => {
-        console.log(answers);
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+        team.push(manager);
         mainMenu();
     }
     );
@@ -118,7 +97,8 @@ function addEngineer () {
             name: 'gitHub'
         }
     ]).then (answers => {
-        console.log(answers);
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
+        team.push(engineer);
         mainMenu();
     }
     );
@@ -147,17 +127,15 @@ function addIntern () {
             name: 'school'
         }
     ]).then (answers => {
-        console.log(answers);
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        team.push(intern);
         mainMenu();
     }
     );
 }
 
 // Function to create html file
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(__dirname, fileName), data);
-    // use this function to run fs.writefile
-}
+
 
 // Function to initialize the app
 function init() {

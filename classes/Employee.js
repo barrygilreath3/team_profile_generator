@@ -19,6 +19,4 @@ class Employee {
 
 }
 
-new Employee;
-
 module.exports = Employee;
