@@ -17,15 +17,3 @@ class Manager extends Employee {
 }
 
 module.exports = Manager;
-
-// {
-//     type: 'input',
-//     message: 'Office Number?',
-//     name: 'office'
-
-
-//     {
-//         type: 'input',
-//         message: 'Email Address',
-//         name: 'email'
-//     }

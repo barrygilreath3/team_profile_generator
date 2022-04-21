@@ -1,18 +1,3 @@
-const employeeQuestions = [
-    {
-        type: 'input',
-        message: 'Employee ID Number',
-        name: 'id'
-    },
-    {
-        type: 'input',
-        message: 'Email',
-        name: 'email'
-    },
-];
-
-module.exports;
-
 /* The first class is an `Employee` parent class with the following properties and methods:
 
 * `name`

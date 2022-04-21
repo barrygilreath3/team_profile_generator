@@ -8,6 +8,7 @@ const engineer = require('./classes/Engineer');
 const intern = require('./classes/Intern');
 
 const generateHtml = require('./utils/generateHtml');
+const Manager = require('./classes/Manager');
 
 // const generateHtml = new generateHtml();
 
@@ -36,32 +37,121 @@ function mainMenu() {
     })
 }
 
-function addManager () {
-    new Employee()
-
-    inquirer.prompt(
+function addManager() {
+    inquirer.prompt([
         {
             type: 'input',
             message: 'First Name',
             name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'Employee ID #:',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Email Address:',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'Office Number?',
+            name: 'office'        
         }
-    ).then (answers => {
-        console.log(new Employee);
-    });
-
-};
+    ]).then (answers => {
+        console.log(answers);
+        mainMenu();
+    }
+    );
+}
 
 function addEngineer () {
-    console.log("Add Engineer");
-    mainMenu();
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'First Name',
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'Employee ID #:',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Email Address:',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'Office Number?',
+            name: 'office'        
+        }
+    ]).then (answers => {
+        console.log(answers);
+        mainMenu();
+    }
+    );
+}
+
+function addEngineer () {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'First Name',
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'Employee ID #:',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Email Address:',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'GitHub',
+            name: 'gitHub'
+        }
+    ]).then (answers => {
+        console.log(answers);
+        mainMenu();
+    }
+    );
 }
 
 function addIntern () {
-    console.log("Add Intern");
-    mainMenu();
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'First Name',
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'Employee ID #:',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'Email Address:',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'School?',
+            name: 'school'
+        }
+    ]).then (answers => {
+        console.log(answers);
+        mainMenu();
+    }
+    );
 }
-
-
 
 // Function to create html file
 function writeToFile(fileName, data) {
