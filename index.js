@@ -6,8 +6,8 @@ const Engineer = require('./classes/Engineer');
 const Intern = require('./classes/Intern');
 
 const generateHtml = require('./utils/generateHtml');
-const targetFolder = path.resolve(__dirname, "dist");
-
+const targetPath = path.resolve(__dirname, 'dist', "team.html");
+const targetFolder = path.resolve(__dirname, 'dist');
 
 const team = [];
 
@@ -17,7 +17,7 @@ function mainMenu() {
             name: 'switch',
             type:"list",
             message: "What type of employee would you like to create?",
-            choices: ['Manager', 'Engineer', 'Intern', 'exit']
+            choices: ['Manager', 'Engineer', 'Intern', '- Exit/Print -']
         }
     ).then(answers =>{
         console.log(answers);
@@ -32,13 +32,12 @@ function mainMenu() {
         }
         else {
             console.log(team);
-            // process.exit();
 
             if (!fs.existsSync(targetFolder)) {
                 fs.mkdir(targetFolder);
             }
-        
-            fs.writeFileSync(path.join(targetFolder, 'team.html'), generateHtml(team));
+
+            write();
 
         }
     })
@@ -74,7 +73,7 @@ function addManager() {
     );
 }
 
-function addEngineer () {
+function addEngineer() {
     inquirer.prompt([
         {
             type: 'input',
@@ -104,7 +103,7 @@ function addEngineer () {
     );
 }
 
-function addIntern () {
+function addIntern() {
     inquirer.prompt([
         {
             type: 'input',
@@ -129,21 +128,22 @@ function addIntern () {
     ]).then (answers => {
         const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         team.push(intern);
+
+        // fs.writeFileSync(path.join((targetFolder, 'team.html'), generateHtml(team), 'utf-8');
+
         mainMenu();
     }
     );
 }
 
-// Function to create html file
-
+function write () {
+    fs.writeFileSync(targetPath, generateHtml(team), "utf-8");
+}
 
 // Function to initialize the app
 function init() {
-    // inquirer.prompt().then(function(answers) {
-    //     writeToFile('index.html', generateHtml(answers));
-    //     console.log('You just made a web page!');
-    // })
     mainMenu();
 };
+
 
 init();

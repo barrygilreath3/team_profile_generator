@@ -1,5 +1,6 @@
-function generateHtml() {
-    return `    <!DOCTYPE html>
+function generateHtml(array) {
+
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -36,8 +37,7 @@ function generateHtml() {
     
     </body>
     
-    </html>`
-
+    </html>`;
 
 }
 
