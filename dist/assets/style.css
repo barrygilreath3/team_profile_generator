@@ -1,6 +1,5 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(22, 22, 22)
 }
 
 header {
@@ -26,6 +25,7 @@ header h1 {
     width: 300px;
     display: flex;
     justify-items: center;
+    margin: 0px 20px 0px 20px;
     flex-direction: column;
     border: 1px lightgray solid;
     box-shadow: 6px 6px 20px 1px rgba(0, 0, 50, 0.2);

@@ -18,7 +18,7 @@ function buildManager (manager) {
         <div id="bottomBox">
             <div class="infoBox" id="id">ID: ${manager.getId()}</div>
             <div class="infoBox" id="email">
-                <p>Email: <a href="mailto:'${manager.getEmail()}'"></a>${manager.getEmail()}</p>
+                <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
             </div>
             <div class="infoBox" id="info">
                 <p>Office Number: ${manager.getOffice()}</p>
@@ -38,10 +38,10 @@ function buildEngineer (engineer) {
     <div id="bottomBox">
         <div class="infoBox" id="id">ID: ${engineer.getId()}</div>
         <div class="infoBox" id="email">
-            <p>Email: <a href="mailto:'${engineer.getEmail()}'"></a>${engineer.getEmail()}</p>
+            <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
         </div>
         <div class="infoBox" id="info">
-            <p>GitHub:  <a href="https://github.com/${engineer.getGitHub()}"></a>${engineer.getGitHub()}</p>
+            <p>GitHub:  <a href="https://github.com/${engineer.getGitHub()}">https://www.github.com/${engineer.getGitHub()}</a></p>
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@ function buildIntern (intern) {
     <div id="bottomBox">
         <div class="infoBox" id="id">ID: ${intern.getId()}</div>
         <div class="infoBox" id="email">
-            <p>Email: <a href="mailto:'${intern.getEmail()}'"></a>${intern.getEmail()}</p>
+            <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
         </div>
         <div class="infoBox" id="info">
             <p>School: ${intern.getSchool()}</p>
