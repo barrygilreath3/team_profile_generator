@@ -9,7 +9,7 @@ const generateHtml = require('./utils/generateHtml');
 const targetPath = path.resolve(__dirname, 'dist', "team.html");
 const targetFolder = path.resolve(__dirname, 'dist');
 
-const team = [];
+let team = [];
 
 function mainMenu() {
     inquirer.prompt(
@@ -20,7 +20,6 @@ function mainMenu() {
             choices: ['Manager', 'Engineer', 'Intern', '- Exit/Print -']
         }
     ).then(answers =>{
-        console.log(answers);
 
         if(answers.switch === 'Manager') {
             addManager();
@@ -31,7 +30,6 @@ function mainMenu() {
             addIntern();
         }
         else {
-            console.log(team);
 
             if (!fs.existsSync(targetFolder)) {
                 fs.mkdir(targetFolder);
@@ -66,7 +64,7 @@ function addManager() {
             name: 'office'        
         }
     ]).then (answers => {
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+        var manager = new Manager(answers.name, answers.id, answers.email, answers.office);
         team.push(manager);
         mainMenu();
     }
@@ -96,7 +94,7 @@ function addEngineer() {
             name: 'gitHub'
         }
     ]).then (answers => {
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
+        var engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
         team.push(engineer);
         mainMenu();
     }
@@ -126,7 +124,7 @@ function addIntern() {
             name: 'school'
         }
     ]).then (answers => {
-        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        var intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         team.push(intern);
 
         // fs.writeFileSync(path.join((targetFolder, 'team.html'), generateHtml(team), 'utf-8');
